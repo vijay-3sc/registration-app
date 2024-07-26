@@ -42,7 +42,7 @@ pipeline{
                             verbose: true,
                             transfers: [ 
                                 sshTransfer(  execCommand: "sudo docker login ${ACR_LOGIN_SERVER} -u ${ACR_AUTH_USR} -p ${ACR_AUTH_PSW} && sudo docker pull ${REGISTRY_NAME}.azurecr.io/${REPO_NAME}:$BUILD_NUMBER"),
-                                sshTransfer(  execCommand: "sudo docker run -dit -p 9090:9090 ${REGISTRY_NAME}.azurecr.io/${REPO_NAME}:$BUILD_NUMBER")
+                                sshTransfer(  execCommand: "sudo docker run -dit -p 8000:8080 ${REGISTRY_NAME}.azurecr.io/${REPO_NAME}:$BUILD_NUMBER")
                             ]
                             )
                         ]
