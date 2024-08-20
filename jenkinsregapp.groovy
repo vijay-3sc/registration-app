@@ -4,7 +4,7 @@ pipeline{
         DOCKER_CREDENTIALS_ID = credentials('auth_docker')
         DOCKER_REGISTRY_URL= 'https://hub.docker.com/u/vijay3sc'
         REGISTRY_NAME = 'vijay3sc'
-        REPO_NAME = 'registraton'
+        REPO_NAME = 'regapp'
     }
     stages{
         stage('git checkout'){
@@ -28,7 +28,13 @@ pipeline{
                 
             }
         }
+        stage('Deploy to k8s'){
+            withKubeConfig([credentialsId: 'k3s_kubeconfig']) {
+                sh 'kubectl apply -f regapp-deploy.yml'
+                sh 'kubectl apply -f regapp-service.yml'
+        }
         
     
     }
+}
 }
