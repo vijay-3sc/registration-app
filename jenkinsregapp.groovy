@@ -29,7 +29,8 @@ pipeline{
             }
         }
         stage('Deploy to k8s'){
-            withKubeConfig([credentialsId: 'k3s_kubeconfig']) {
+            steps{
+                withKubeConfig([credentialsId: 'k3s_kubeconfig']) {
                 sh 'kubectl apply -f regapp-deploy.yml'
                 sh 'kubectl apply -f regapp-service.yml'
         }
