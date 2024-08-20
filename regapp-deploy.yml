@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: regapp
-        image: ashfaque9x/regapp
+        image: vijay3sc/regapp
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
