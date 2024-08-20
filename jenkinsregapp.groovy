@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment{
-        DOCKER_CREDENTIALS_ID = credentials('docker_creds')
+        DOCKER_CREDENTIALS_ID = credentials('auth_docker')
         DOCKER_REGISTRY_URL= 'https://hub.docker.com/u/vijay3sc'
         REGISTRY_NAME = 'vijay3sc'
         REPO_NAME = 'registraton'
