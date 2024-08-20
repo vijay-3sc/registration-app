@@ -14,7 +14,6 @@ pipeline{
         }
         stage('build docker image'){
             steps{
-                sh 'docker buildx prune  --force'
                 sh 'docker build -t ${DOCKER_REGISTRY_URL}/${REPO_NAME}:$BUILD_NUMBER .'
             }
         }
